@@ -44,14 +44,14 @@
 <div id="Head">
 <div id="Head_left">
 <div id="Leaf_top"></div>
-<div id="Leaf_bottom"> <a class="registration" href="createaccount.php">REGISTRATION</a> <a class="log-in" href="login.php">LOG IN</a> </div>
+<div id="Leaf_bottom"> <a class="registration" href="Register.php">REGISTRATION</a> <a class="log-in" href="login.php">LOG IN</a> </div>
 </div>
 <div id="Head_right">
 <div id="Logo">
 <div id="Name"><span class="blue"></span><span>Find A Gift</span></div>
 <div id="Informations">Home of all your gift idea needs </div>
 </div>
-<div id="Top_menu"> <a class="kart" href="?page=home"><span>CATAGORIES</span></a> 
+<div id="Top_menu"> <a class="kart" href="?page=home"><span>TBD</span></a> 
 <a class="contact" href="?page=home"><span>ABOUT</span></a>
 <a class="contact" href="?page=home"><span>CONTACT</span></a>
 <a class="help" href="?page=home"><span>HELP</span></a>
@@ -77,10 +77,10 @@
           <form method="post" action="login.php">
     <p>
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" size="40" </p>
+    <input type="text" id="username" name="username" </p>
     <p>
     <label for="password">Password:</label>
-    <input type="password" id="password" name="pw" size="40" /></p>
+    <input type="password" id="password" name="pw" /></p>
 
     <p><input type="submit" value="login" name="submit" /></p>
   </form>

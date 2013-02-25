@@ -21,7 +21,7 @@
 <div id="Head">
 <div id="Head_left">
 <div id="Leaf_top"></div>
-<div id="Leaf_bottom"> <a class="registration" href="createaccount.php">REGISTRATION</a> <a class="log-in" href="login.php">LOG IN</a> </div>
+<div id="Leaf_bottom"> <a class="registration" href="Register.php">REGISTRATION</a> <a class="log-in" href="login.php">LOG IN</a> </div>
 </div>
 <div id="Head_right">
 <div id="Logo">
