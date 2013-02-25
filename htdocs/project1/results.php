@@ -58,7 +58,7 @@
 			$company = $row['company'];
 			$rating = $row['rating'];
 
-		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: $price</span><br></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
+		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
 
 	    }
 	    echo "</table>\n"; 

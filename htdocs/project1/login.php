@@ -55,7 +55,7 @@
 <a class="contact" href="?page=home"><span>ABOUT</span></a>
 <a class="contact" href="?page=home"><span>CONTACT</span></a>
 <a class="help" href="?page=home"><span>HELP</span></a>
-<a class="home" href="index.html"><span>HOME</span></a>
+<a class="home" href="index.php"><span>HOME</span></a>
 </div>
 
 </div>
