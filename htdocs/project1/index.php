@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cz"><head><title>Company name - title</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cz"><head><title>Find A Gift</title>
 
 <meta http-equiv="Content-language" content="cs">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,11 +28,12 @@
 <div id="Name"><span class="blue"></span><span>Find A Gift</span></div>
 <div id="Informations">Home of all your gift idea needs </div>
 </div>
-<div id="Top_menu"> <a class="kart" href="?page=home"><span>CATAGORIES</span></a> 
+<div id="Top_menu"> 
+<a class="kart" href="?page=home"><span>TBD</span></a> 
 <a class="contact" href="?page=home"><span>ABOUT</span></a>
 <a class="contact" href="?page=home"><span>CONTACT</span></a>
 <a class="help" href="?page=home"><span>HELP</span></a>
-<a class="home" href="index.html"><span>HOME</span></a>
+<a class="home" href="index.php"><span>HOME</span></a>
 </div>
 
 </div>
