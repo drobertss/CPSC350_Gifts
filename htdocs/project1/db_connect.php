@@ -1,5 +1,5 @@
 <?php
 
-  	$db = mysqli_connect('localhost', 'root', 'stemmler', 'project1')
+  	$db = mysqli_connect('localhost', 'findGift', 'project', 'project1')
 		or die (mysqli_error());
 ?>
