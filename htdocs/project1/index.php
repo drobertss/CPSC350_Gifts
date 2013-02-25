@@ -66,8 +66,10 @@
 </div>
 <div class="menu_header_right"> </div>
 </div>
-<div id="Poll_content"> <span class="poll_question"><input type="text" id="search" name="search" size="20" />
-    <input type="submit" value="search" name="submit" /></span><br>
+     <form method="post" action="results.php">
+    <input type="text" id="search" name="search" size="30" />
+    <input type="submit" value="Search" name="submit" />
+  </form>
 </div>
 </div>
 </div>
