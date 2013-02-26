@@ -38,7 +38,18 @@
 <div id="Head">
 <div id="Head_left">
 <div id="Leaf_top"></div>
-<div id="Leaf_bottom"> <a class="registration" href="Register.php">REGISTRATION</a> <a class="log-in" href="login.php">LOG IN</a> </div>
+<div id="Leaf_bottom">
+<?php
+session_start();
+include "db_connect.php";
+if(isset($_SESSION['name'])){
+echo"<a class=\"registration\" href=\"profile.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
+}
+else{
+echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\"log-in\" href=\"login.php\">LOG IN</a>";
+}
+?>
+</div>
 </div>
 <div id="Head_right">
 <div id="Logo">

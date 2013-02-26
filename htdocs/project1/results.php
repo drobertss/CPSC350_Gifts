@@ -21,14 +21,25 @@
 <div id="Head">
 <div id="Head_left">
 <div id="Leaf_top"></div>
-<div id="Leaf_bottom"> <a class="registration" href="Register.php">REGISTRATION</a> <a class="log-in" href="login.php">LOG IN</a> </div>
+<div id="Leaf_bottom"> 
+<?php
+session_start();
+include "db_connect.php";
+if(isset($_SESSION['name'])){
+echo"<a class=\"registration\" href=\"profile.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
+}
+else{
+echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\"log-in\" href=\"login.php\">LOG IN</a>";
+}
+?>
+ </div>
 </div>
 <div id="Head_right">
 <div id="Logo">
 <div id="Name"><span class="blue"></span><span>Find A Gift</span></div>
 <div id="Informations">Home of all your gift idea needs </div>
 </div>
-<div id="Top_menu"> <a class="kart" href="?page=home"><span>CATAGORIES</span></a> 
+<div id="Top_menu"> <a class="kart" href="?page=home"><span>TBD</span></a> 
 <a class="contact" href="?page=home"><span>ABOUT</span></a>
 <a class="contact" href="?page=home"><span>CONTACT</span></a>
 <a class="help" href="?page=home"><span>HELP</span></a>
@@ -39,8 +50,6 @@
 </div>
 <div id="CentralPart">
           <?php
-		  session_start();
-  include "db_connect.php";
   if (isset($_POST['search']))
   {
   	$searchterm = $_POST['search'];
