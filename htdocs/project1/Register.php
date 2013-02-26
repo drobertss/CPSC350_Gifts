@@ -19,15 +19,21 @@
   $userName    =    mysql_real_escape_string($_POST['txtUser']);
   $password    =    mysql_real_escape_string($_POST['txtPassword']);
 		 
-         //implement select statement to chack if username is take here//
-		 // use an if statement to figure out if its there (ie if ($row = mysqli_fetch_array($result)){ failed = 'fail'} else will's code)//
-        
+         //robs code 
+        $sql="SELECT username FROM users WHERE username='".$userName.";";
 		
-		//Will's Code
-		 $query = "insert into users (username,password) values ('$userName',SHA('$password'));";
-		 $result = mysqli_query($db,$query);
-		 $failed = 'nofail';
-
+		if(mysql_affected_rows()==0){
+		print "no such login in the system. please try again.";
+		exit();
+		
+		
+		} else{
+		
+			//Will's Code
+			$query = "insert into users (username,password) values ('$userName',SHA('$password'));";
+			$result = mysqli_query($db,$query);
+			$failed = 'nofail';
+			  }
        }
 ?>
 
