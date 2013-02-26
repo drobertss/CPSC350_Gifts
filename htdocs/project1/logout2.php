@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cz"><head><title>Find A Gift</title>
 
@@ -15,7 +19,7 @@
 
 
 <?php
-        session_start();
+       
 		session_destroy();
 		echo '<META http-equiv="refresh" content="0;URL=index.php">';
 	?>
