@@ -116,60 +116,24 @@ echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\
 
 <!-- This is where we need to implement code to access the database so that we get the first four gifts from the database, there info, and links to images of them -->
 <div id="Page_center">
-<table>
-<tbody>
-<tr>
-<td class="page_center_button"><a class="page_center_buy" href="?page=home" title="buy"><span>buy</span></a><a class="page_center_info" href="?page=home" title="more info"><span>more-info</span></a>
-</td>
-<td class="page_center_content">
-<div class="page_center_text"> <span class="blue2">Lorem ipsum dolor</span><br>
-<span class="gray">Donec at: justo ac</span><br>
-<span class="gray">Cras ut: ligula nec</span><br>
-<br>
-<span class="green">Price: $156</span><br>
-</div>
-</td>
-<td class="page_center_img"> <img src="img/photo4.gif" alt="illustration image"> </td>
-<td class="page_center_button"><a class="page_center_buy" href="?page=home" title="buy"><span>buy</span></a><a class="page_center_info" href="?page=home" title="more info"><span>more-info</span></a>
-</td>
-<td class="page_center_content">
-<div class="page_center_text"> <span class="blue2">Lorem ipsum dolor</span><br>
-<span class="gray">Donec at: justo ac</span><br>
-<span class="gray">Cras ut: ligula nec</span><br>
-<br>
-<span class="green">Price: $156</span><br>
-</div>
-</td>
-<td class="page_center_img2"> <img src="img/photo4.gif" alt="illustration image"> </td>
-</tr>
-<tr>
-<td class="page_center_button"><a class="page_center_buy" href="?page=home" title="buy"><span>buy</span></a><a class="page_center_info" href="?page=home" title="more info"><span>more-info</span></a>
-</td>
-<td class="page_center_content">
-<div class="page_center_text"> <span class="blue2">Lorem ipsum dolor</span><br>
-<span class="gray">Donec at: justo ac</span><br>
-<span class="gray">Cras ut: ligula nec</span><br>
-<br>
-<span class="green">Price: $156</span><br>
-</div>
-</td>
-<td class="page_center_img"> <img src="img/photo4.gif" alt="illustration image"> </td>
-<td class="page_center_button"><a class="page_center_buy" href="?page=home" title="buy"><span>buy</span></a><a class="page_center_info" href="?page=home" title="more info"><span>more-info</span></a>
-</td>
-<td class="page_center_content">
-<div class="page_center_text"> <span class="blue2">Lorem ipsum dolor</span><br>
-<span class="gray">Donec at: justo ac</span><br>
-<span class="gray">Cras ut: ligula nec</span><br>
-<br>
-<span class="green">Price: $156</span><br>
-</div>
-</td>
+<?php
+$query = "SELECT productName,price,url,productDescription,photoURL,company,rating FROM gifts limit 4"; //modified version of Robert Patterson's code
+  		$result = mysqli_query($db, $query)
+		or die("Error Querying Database");
+while($row = mysqli_fetch_array($result)) {
+  			$name = $row['productName'];
+  			$price = $row['price'];
+  			$URL = $row['url'];
+  			$description = $row['productDescription'];
+			$photo = $row['photoURL'];
+			$company = $row['company'];
+			$rating = $row['rating'];
 
-<!-- end first four gift ideas -->
-<td class="page_center_img2"> <img src="img/photo4.gif" alt="illustration image"> </td>
-</tr>
-</tbody>
-</table>
+		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
+
+	    }
+	    echo "</table>\n"; 
+		?>
 </div>
 </div>
 </div>
