@@ -20,14 +20,14 @@
   $password    =    mysql_real_escape_string($_POST['txtPassword']);
 		 
          //robs code 
-        $sql="SELECT username FROM users WHERE username='".$userName.";";
+        $query = "SELECT username FROM users WHERE username='$userName'";
 		
-		if(mysql_affected_rows()==0){
-		print "no such login in the system. please try again.";
-		exit();
-		
-		
-		} else{
+	$result = mysqli_query($db, $query);
+		 //echo $result;
+		 if ($row = mysqli_fetch_array($result)){
+		 $failed = 'fail';
+		 }
+		 else{
 		
 			//Will's Code
 			$query = "insert into users (username,password) values ('$userName',SHA('$password'));";
