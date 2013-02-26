@@ -16,7 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 CREATE DATABASE IF NOT EXISTS project1;
-GRANT ALL PRIVILEGES ON session.* to 'findGift'@'localhost' identified by 'project';
+GRANT ALL PRIVILEGES ON project1.* to 'findGift'@'localhost' identified by 'project';
 USE project1;
 
 --
