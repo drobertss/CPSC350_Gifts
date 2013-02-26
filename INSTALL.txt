@@ -2,5 +2,5 @@ INSTALL INSTRUCTIONS: Clone CPSC350_Gifts repository to repository on your local
 Copy project1 folder inside the htdocs folder into the htdocs folder of xampp. 
 Start up xampp.
 Within shell, navigate to xampp/htdocs/project1 and begin mysql.
-Create a database called project1 and source project1.sql file into it.
+Source project1.sql file.
 Within your internet browser, navigate to http://localhost/project1/index.html
