@@ -1,5 +1,7 @@
 -- MySQL dump 10.13  Distrib 5.5.27, for Win32 (x86)
 --
+-- MySQL dump 10.13  Distrib 5.5.27, for Win32 (x86)
+--
 -- Host: localhost    Database: project1
 -- ------------------------------------------------------
 -- Server version	5.5.27
@@ -18,6 +20,29 @@
 CREATE DATABASE IF NOT EXISTS project1;
 GRANT ALL PRIVILEGES ON project1.* to 'findGift'@'localhost' identified by 'project';
 USE project1;
+--
+-- Table structure for table `catagories`
+--
+
+DROP TABLE IF EXISTS `catagories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `catagories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `catagory` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `catagories`
+--
+
+LOCK TABLES `catagories` WRITE;
+/*!40000 ALTER TABLE `catagories` DISABLE KEYS */;
+INSERT INTO `catagories` VALUES (1,'Babies'),(2,'Men'),(3,'Women'),(4,'Kids'),(5,'Teens'),(6,'Friends'),(7,'Family'),(8,'Pet'),(9,'Birthday'),(10,'Holiday'),(11,'Special Event');
+/*!40000 ALTER TABLE `catagories` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `gifts`
@@ -50,6 +75,29 @@ INSERT INTO `gifts` VALUES (1,'Bicycle Multi Tool',25.49,'http://www.amazon.com/
 UNLOCK TABLES;
 
 --
+-- Table structure for table `junction`
+--
+
+DROP TABLE IF EXISTS `junction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `junction` (
+  `gift_id` int(11) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `junction`
+--
+
+LOCK TABLES `junction` WRITE;
+/*!40000 ALTER TABLE `junction` DISABLE KEYS */;
+INSERT INTO `junction` VALUES (1,2),(1,5),(2,5),(2,6),(2,7),(3,2),(3,3),(3,4),(3,5),(3,7),(4,2),(4,3),(4,5),(4,7),(4,9);
+/*!40000 ALTER TABLE `junction` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -61,7 +109,7 @@ CREATE TABLE `users` (
   `username` varchar(30) DEFAULT NULL,
   `password` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +118,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'stemmler','stemm'),(3,'stemmler010','403926033d001b5279df37cbbe5287b7c7c267fa');
+INSERT INTO `users` VALUES (1,'stemmler','stemm'),(3,'stemmler010','403926033d001b5279df37cbbe5287b7c7c267fa'),(4,'lol','403926033d001b5279df37cbbe5287b7c7c267fa');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -83,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-02-24 23:27:46
+-- Dump completed on 2013-03-19  3:05:42

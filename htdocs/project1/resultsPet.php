@@ -71,9 +71,6 @@ echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\
 <a><span>Occasion Type</span></a><br>
 <a class="menu_item" href="resultsBirthday.php"><span>Birthday</span></a><br>
 <a class="menu_item" href="resultsHolidays.php"><span>Holidays</span></a><br>
-<a class="menu_item" href="?page=home"><span>Anniversary</span></a><br>
-<a class="menu_item" href="?page=home"><span>Just Because</span></a><br>
-
 <a class="menu_item" href="resultsSpecial.php"><span>Special Events</span></a><br>
 
 </div>
@@ -95,38 +92,16 @@ echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\
 <div id="RightPart">
 <div id="Page">
 <div id="Page_header">
-<h1>Advantages of Find a Gift</h1>
-<table>
-<tbody>
-<tr>
-<td class="page_header_img"><img src="img/basket.gif" alt="illustration image"></td>
-<td class="page_header_text">
-<p>Click on a product and get sent to the website in which you can buy it.</p>
-</td>
-<td class="page_header_img"><img src="img/idea.gif" alt="illustration image"></td>
-<td class="page_header_text">
-<p>Can't think of anything? No problem, leave the gift ideas to us. Just tell us who its for and we will take care of everything.</p>
-</td>
-</tr>
-<tr>
-<td class="page_header_img"><img src="img/basket.gif" alt="illustration image"></td>
-<td class="page_header_text">
-<p>This service is completely free!!!</p>
-</td>
 
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 
 <!-- This is where we need to implement code to access the database so that we get the first four gifts from the database, there info, and links to images of them -->
 <div id="Page_center">
-<?php
-$query = "SELECT productName,price,url,productDescription,photoURL,company,rating FROM gifts limit 4"; //modified version of Robert Patterson's code
+     <?php
+        $query = "SELECT g.productName,g.price,g.url,g.productDescription,g.photoURL,g.company,g.rating FROM gifts g,catagories c,junction j where g.id = j.gift_id and j.cat_id = c.id and c.id = 8";
   		$result = mysqli_query($db, $query)
-		or die("Error Querying Database");
-while($row = mysqli_fetch_array($result)) {
+   			or die("Error Querying Database");
+   		while($row = mysqli_fetch_array($result)) {
   			$name = $row['productName'];
   			$price = $row['price'];
   			$URL = $row['url'];
@@ -139,7 +114,10 @@ while($row = mysqli_fetch_array($result)) {
 
 	    }
 	    echo "</table>\n"; 
-		?>
+  	
+  	
+  
+  ?>
 </div>
 </div>
 </div>

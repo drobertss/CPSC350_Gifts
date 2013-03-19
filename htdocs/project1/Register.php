@@ -49,7 +49,7 @@ session_start();
 <div id="Leaf_top"></div>
 <div id="Leaf_bottom">
 <?php
-session_start();
+
 include "db_connect.php";
 if(isset($_SESSION['name'])){
 echo"<a class=\"registration\" href=\"profile.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
