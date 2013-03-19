@@ -71,8 +71,10 @@ echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\
 <a><span>Occasion Type</span></a><br>
 <a class="menu_item" href="resultsBirthday.php"><span>Birthday</span></a><br>
 <a class="menu_item" href="resultsHolidays.php"><span>Holidays</span></a><br>
-<a class="menu_item" href="resultsSpecial.php"><span>Special Events</span></a><br>
+<a class="menu_item" href="?page=home"><span>Anniversary</span></a><br>
+<a class="menu_item" href="?page=home"><span>Just Because</span></a><br>
 
+<a class="menu_item" href="resultsSpecial.php"><span>Special Events</span></a><br>
 </div>
 </div>
 <div id="Poll">
