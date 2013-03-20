@@ -15,11 +15,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
-CREATE DATABASE IF NOT EXISTS project1;
-GRANT ALL PRIVILEGES ON project1.* to 'findGift'@'localhost' identified by 'project';
-USE project1;
-
 --
 -- Table structure for table `catagories`
 --
@@ -131,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-20 14:17:43
+-- Dump completed on 2013-03-20 15:21:33
