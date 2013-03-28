@@ -60,21 +60,22 @@ echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\
 </div>
 <div class="menu_header_right"> </div>
 </div>
-<div id="Menu_content"> <a class="menu_item" href="resultsBabies.php"><span>Babies</span></a><br>
-<a class="menu_item" href="resultsMen.php"><span>Men</span></a><br>
-<a class="menu_item" href="resultsWomen.php"><span>Woman</span></a><br>
-<a class="menu_item" href="resultsKids.php"><span>Kids</span></a><br>
-<a class="menu_item" href="resultsTeens.php"><span>Teens</span></a><br>
-<a class="menu_item" href="resultsFriends.php"><span>Friends</span></a><br>
-<a class="menu_item" href="resultsFamily.php"><span>Family</span></a><br>
-<a class="menu_item" href="resultsPet.php"><span>Pet/Pet Lover</span></a><br>
+<div id="Menu_content"> 
+<a class="menu_item" href="catagoryResults.php?catid=1"><span>Babies</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=2"><span>Men</span></a><br>
+<a class="menu_item"  href="catagoryResults.php?catid=3"><span>Woman</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=4"><span>Kids</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=5"><span>Teens</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=6"><span>Friends</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=7"><span>Family</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=8"><span>Pet/Pet Lover</span></a><br>
 <a><span>Occasion Type</span></a><br>
-<a class="menu_item" href="resultsBirthday.php"><span>Birthday</span></a><br>
-<a class="menu_item" href="resultsHolidays.php"><span>Holidays</span></a><br>
-<a class="menu_item" href="?page=home"><span>Anniversary</span></a><br>
-<a class="menu_item" href="?page=home"><span>Just Because</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=9"><span>Birthday</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=10"><span>Holidays</span></a><br>
+<a class="menu_item" method = "post" id = "catitem" value = "1" href="?page=home"><span>Anniversary</span></a><br>
+<a class="menu_item" method = "post" id = "catitem" value = "1" href="?page=home"><span>Just Because</span></a><br>
 
-<a class="menu_item" href="resultsSpecial.php"><span>Special Events</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=11"><span>Special Events</span></a><br>
 
 </div>
 </div>
