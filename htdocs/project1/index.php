@@ -43,11 +43,16 @@ echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\
 <div id="Informations">Home of all your gift idea needs </div>
 </div>
 <div id="Top_menu"> 
-<a class="kart" href="?page=home"><span>TBD</span></a> 
-<a class="contact" href="?page=home"><span>ABOUT</span></a>
-<a class="contact" href="?page=home"><span>CONTACT</span></a>
-<a class="help" href="?page=home"><span>HELP</span></a>
-<a class="home" href="index.php"><span>HOME</span></a>
+<?php
+if(isset($_SESSION['name'])){
+echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
+}
+?>
+
+<a class="contact" href="about.php"><span>About</span></a>
+<a class="contact" href="contact.php"><span>Contact</span></a>
+<a class="help" href="help.php"><span>Help</span></a>
+<a class="home" href="index.php"><span>Home</span></a>
 </div>
 
 </div>
@@ -124,20 +129,25 @@ echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\
 <!-- This is where we need to implement code to access the database so that we get the first four gifts from the database, there info, and links to images of them -->
 <div id="Page_center">
 <?php
-$query = "SELECT productName,price,url,productDescription,photoURL,company,rating FROM gifts limit 4"; //modified version of Robert Patterson's code
+$query = "SELECT id,productName,price,url,productDescription,photoURL,company,rating FROM gifts limit 4"; //modified version of Robert Patterson's code
   		$result = mysqli_query($db, $query)
 		or die("Error Querying Database");
 while($row = mysqli_fetch_array($result)) {
-  			$name = $row['productName'];
+  			$id = $row['id'];
+			$name = $row['productName'];
   			$price = $row['price'];
   			$URL = $row['url'];
   			$description = $row['productDescription'];
 			$photo = $row['photoURL'];
 			$company = $row['company'];
 			$rating = $row['rating'];
-
-		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
-
+			
+			if(isset($_SESSION['name'])){
+		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br><a href=\index.php?giftid=$id>Save Gift Idea</a></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
+			}
+			else{
+			echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
+			}
 	    }
 	    echo "</table>\n"; 
 		?>
