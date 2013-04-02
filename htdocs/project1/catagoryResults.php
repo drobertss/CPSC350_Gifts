@@ -28,6 +28,13 @@ session_start();
 <div id="Leaf_bottom"> 
 <?php
 include "db_connect.php";
+if(isset($_GET['giftid'])){
+$gid = $_GET['giftid'];
+$user = $_SESSION['name'];
+$query = "insert into savedgifts values ((select id from users where username ='".$user."'),".$gid.");";
+$result = mysqli_query($db, $query)
+   			or die("Error Querying Database");
+}
 if(isset($_SESSION['name'])){
 echo"<a class=\"registration\" href=\"profile.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
 }
@@ -122,7 +129,7 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 			$rating = $row['rating'];
 
 		  	if(isset($_SESSION['name'])){
-		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br><a href=\index.php?giftid=$id>Save Gift Idea</a></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
+		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br><a href=catagoryResults.php?giftid=$id&catid=$catagory>Save Gift Idea</a></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
 			}
 			else{
 			echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";

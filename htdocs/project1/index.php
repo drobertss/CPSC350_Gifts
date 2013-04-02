@@ -28,6 +28,13 @@ session_start();
 <div id="Leaf_bottom"> 
 <?php
 include "db_connect.php";
+if(isset($_GET['giftid'])){
+$gid = $_GET['giftid'];
+$user = $_SESSION['name'];
+$query = "insert into savedgifts values ((select id from users where username ='".$user."'),".$gid.");";
+$result = mysqli_query($db, $query)
+   			or die("Error Querying Database");
+}
 if(isset($_SESSION['name'])){
 echo"<a class=\"registration\" href=\"profile.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
 }
