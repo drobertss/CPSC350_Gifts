@@ -58,7 +58,7 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 }
 ?>
 
-<a class="contact" href="about.php"><span>About Us</span></a>
+<a class="contact" href="about.php"><span>About</span></a>
 <a class="contact" href="contact.php"><span>Contact</span></a>
 <a class="help" href="help.php"><span>Help</span></a>
 <a class="home" href="index.php"><span>Home</span></a>
