@@ -35,6 +35,7 @@ $user = $_SESSION['name'];
 $query = "insert into savedgifts values ((select id from users where username ='".$user."'),".$gid.");";
 $result = mysqli_query($db, $query)
    			or die("Error Querying Database");
+   		
 }
 if(isset($_SESSION['name'])){
 echo"<a class=\"registration\" href=\"savedGifts.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
@@ -57,7 +58,7 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 }
 ?>
 
-<a class="contact" href="about.php"><span>About</span></a>
+<a class="contact" href="about.php"><span>About Us</span></a>
 <a class="contact" href="contact.php"><span>Contact</span></a>
 <a class="help" href="help.php"><span>Help</span></a>
 <a class="home" href="index.php"><span>Home</span></a>
