@@ -117,9 +117,15 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 <div id="Page_center">
      <?php
 		$catagory = $_GET['catid'];
+		if($catagory != 13){
         $query = "SELECT g.id,g.productName,g.price,g.url,g.productDescription,g.photoURL,g.company,g.rating FROM gifts g,catagories c,junction j where g.id = j.gift_id and j.cat_id = c.id and c.id =".$catagory.";";
   		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
+			}
+		else{
+		$query = "SELECT * from gifts;";
+		$result = mysqli_query($db,$query) or die ("Error Querying Database");
+		}
    		while($row = mysqli_fetch_array($result)) {
 		    $id = $row['id'];
   			$name = $row['productName'];
