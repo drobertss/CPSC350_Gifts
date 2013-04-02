@@ -1,16 +1,149 @@
-<html>
- <head>
-  <title>Help Tab</title>
- </head>
- <body>
- <?php echo '<p>Getting Started:
- How To Register: To Register, you select the option to create an account on the home screen.
- How To Login: To login, you select the login option on the main page as well.
- Searching For A Gift: Once you are logged in, you can search gifts by the name in the search bar at the top.
- Searching For Gifts By Category:  You can also browse the kind of gift you want by the category.
- Saving Gift Ideas: Once you found a gift, you can save it your profile, which can then be viewed in your profile by clicking your username in the top left.
+<?php
+session_start();
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cz"><head><title>Find A Gift</title>
+
+<meta http-equiv="Content-language" content="cs">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content=" ">
+<meta name="keywords" content=" ">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta name="author" content="Klára Frolichová, Sunlight webdesign">
+<meta name="Copyright" content="Klára Frolichová, Sunlight webdesign 2007">
+<meta name="design" content="Sunlight webdesign - http://www.sunlight.cz, info@sunlight.cz">
+<link rel="stylesheet" type="text/css" href="default.css" title="default">
+</head>
+
+
+<body>
+<div id="WholePage">
+<div id="Inner">
+<div id="Container">
+<div id="Head">
+<div id="Head_left">
+<div id="Leaf_top"></div>
+<div id="Leaf_bottom"> 
+<?php
+include "db_connect.php";
+if(isset($_GET['giftid'])){
+$gid = $_GET['giftid'];
+$user = $_SESSION['name'];
+$query = "insert into savedgifts values ((select id from users where username ='".$user."'),".$gid.");";
+$result = mysqli_query($db, $query)
+   			or die("Error Querying Database");
+}
+if(isset($_SESSION['name'])){
+echo"<a class=\"registration\" href=\"savedGifts.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
+}
+else{
+echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\"log-in\" href=\"login.php\">LOG IN</a>";
+}
+?>
+</div>
+</div>
+<div id="Head_right">
+<div id="Logo">
+<div id="Name"><span class="blue"></span><span>Find A Gift</span></div>
+<div id="Informations">Home of all your gift idea needs </div>
+</div>
+<div id="Top_menu"> 
+<?php
+if(isset($_SESSION['name'])){
+echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
+}
+?>
+
+<a class="contact" href="about.php"><span>About</span></a>
+<a class="contact" href="contact.php"><span>Contact</span></a>
+<a class="help" href="help.php"><span>Help</span></a>
+<a class="home" href="index.php"><span>Home</span></a>
+</div>
+
+</div>
+</div>
+<div id="CentralPart">
+<div id="LeftPart">
+<div id="Menu">
+<div id="Menu_header">
+<div class="menu_header_left"> <span class="menu_text">Gift Ideas</span>
+</div>
+<div class="menu_header_right"> </div>
+</div>
+<div id="Menu_content"> 
+<a class="menu_item" href="catagoryResults.php?catid=13"><span>All Gifts</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=1"><span>Babies</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=2"><span>Men</span></a><br>
+<a class="menu_item"  href="catagoryResults.php?catid=3"><span>Woman</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=4"><span>Kids</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=5"><span>Teens</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=6"><span>Friends</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=7"><span>Family</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=8"><span>Pet/Pet Lover</span></a><br>
+<a><span>Occasion Type</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=9"><span>Birthday</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=10"><span>Holidays</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=12"><span>Just Because</span></a><br>
+
+<a class="menu_item" href="catagoryResults.php?catid=11"><span>Special Events</span></a><br>
+
+</div>
+</div>
+<div id="Poll">
+<div id="Poll_header">
+<div class="menu_header_left"> <span class="menu_text">SEARCH</span>
+</div>
+<div class="menu_header_right"> </div>
+</div>
+     <form method="post" action="results.php">
+    <input type="text" id="search" name="search" size="30" />
+    <input type="submit" value="Search" name="submit" />
+  </form>
+</div>
+</div>
+</div>
+
+<div id="RightPart">
+<div id="Page">
+<div id="Page_header">
+<h1> Getting Started </h1>
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- This is where we need to implement code to access the database so that we get the first four gifts from the database, there info, and links to images of them -->
+<div id="Page_center">
+<p>
+ <b>How To Register:</b> To Register, click on registration in the top left corner of any page.
+ </p>
+ <p><b>How To Login:</b> To login, you select the login option located at the top left corner of any page.</p>
  
+ <p><b>Searching For A Gift:</b> Using the search bar on the left side of the screen, you can search for gifts by name.</p>
  
- </p>'; ?> 
- </body>
-</html>
+ <p><b>Searching For Gifts By Category:</b>  You can also browse the kind of gift you want by the category by clicking on the specific catagory located on the left side of the screen.</p>
+ 
+ <p><b>Saving Gift Ideas:</b> Once you found a gift, you can save it your profile by clicking the "save gift idea" link, which can then be viewed in your profile by clicking your username in the top left or the saved gifts tab.</p>
+</p>
+</div>
+</div>
+</div>
+<div class="cleaner"></div>
+</div>
+<div id="Bottom">
+<p class="down">Copyright © 2007, <a href="http://www.sunlight.cz">Design by: Sunlight webdesign</a></p>
+<p class="down"><a href="http://www.sunlight.cz">Supported by </a><a href="http://www.hosting24.com/" target="_blank">Hosting24.com</a>
+</p>
+<div class="down2">
+<p> <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88"></a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
