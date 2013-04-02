@@ -30,7 +30,7 @@ session_start();
 
 include "db_connect.php";
 if(isset($_SESSION['name'])){
-echo"<a class=\"registration\" href=\"profile.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
+echo"<a class=\"registration\" href=\"savedGifts.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
 }
 else{
 echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\"log-in\" href=\"login.php\">LOG IN</a>";

@@ -28,13 +28,7 @@ session_start();
 <div id="Leaf_bottom"> 
 <?php
 include "db_connect.php";
-if(isset($_GET['giftid'])){
-$gid = $_GET['giftid'];
-$user = $_SESSION['name'];
-$query = "insert into savedgifts values ((select id from users where username ='".$user."'),".$gid.");";
-$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");
-}
+
 if(isset($_SESSION['name'])){
 echo"<a class=\"registration\" href=\"savedGifts.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
 }
@@ -107,56 +101,38 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 <div id="RightPart">
 <div id="Page">
 <div id="Page_header">
-<h1>Advantages of Find a Gift</h1>
-<table>
-<tbody>
-<tr>
-<td class="page_header_img"><img src="img/basket.gif" alt="illustration image"></td>
-<td class="page_header_text">
-<p>Click on a product and get sent to the website in which you can buy it.</p>
-</td>
-<td class="page_header_img"><img src="img/idea.gif" alt="illustration image"></td>
-<td class="page_header_text">
-<p>Can't think of anything? No problem, leave the gift ideas to us. Just tell us who its for and we will take care of everything.</p>
-</td>
-</tr>
-<tr>
-<td class="page_header_img"><img src="img/basket.gif" alt="illustration image"></td>
-<td class="page_header_text">
-<p>This service is completely free!!!</p>
-</td>
-
-</td>
-</tr>
-</tbody>
-</table>
+<h1> Your Saved Gifts! </h1>
 </div>
 
 <!-- This is where we need to implement code to access the database so that we get the first four gifts from the database, there info, and links to images of them -->
 <div id="Page_center">
-<?php
-$query = "SELECT id,productName,price,url,productDescription,photoURL,company,rating FROM gifts limit 4"; //modified version of Robert Patterson's code
+
+     <?php
+		$user = $_SESSION['name'];
+		
+        $query = "SELECT g.id,g.productName,g.price,g.url,g.productDescription,g.photoURL,g.company,g.rating FROM gifts g,savedgifts s,users u where g.id = s.gift_id and s.user_id = u.id and u.id = (select id from users where username='".$user."');";
   		$result = mysqli_query($db, $query)
-		or die("Error Querying Database");
-while($row = mysqli_fetch_array($result)) {
-  			$id = $row['id'];
-			$name = $row['productName'];
+   			or die("Error Querying Database");
+   		while($row = mysqli_fetch_array($result)) {
+		 
+  			$name = $row['productName'];
   			$price = $row['price'];
   			$URL = $row['url'];
   			$description = $row['productDescription'];
 			$photo = $row['photoURL'];
 			$company = $row['company'];
 			$rating = $row['rating'];
-			
-			if(isset($_SESSION['name'])){
-		  	echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br><a href=\index.php?giftid=$id>Save Gift Idea</a></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
-			}
-			else{
+
+		  	
 			echo "<table><tbody><tr><td class=\"page_center_button\"><a class=\"page_center_buy\" href=\"$URL\" title=\"buy\"><span>buy</span></a><a class=\"page_center_info\" href=\"$URL\" title=\"more info\"><span>more-info</span></a></td><td class=\"page_center_content\"><div class=\"page_center_text\"> <span class=\"blue2\">$name</span><br><span class=\"black\">$company</span><br><span class=\"gray\">$description</span><br><br><span class=\"green\">Price: \$$price</span><br></div></td><td class=\"page_center_img\"> <img src=\"$photo\" alt=\"illustration image\"> </td>";
-			}
+			
+
 	    }
 	    echo "</table>\n"; 
-		?>
+  	
+  	
+  
+  ?>
 </div>
 </div>
 </div>

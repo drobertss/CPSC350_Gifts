@@ -36,7 +36,7 @@ $result = mysqli_query($db, $query)
    			or die("Error Querying Database");
 }
 if(isset($_SESSION['name'])){
-echo"<a class=\"registration\" href=\"profile.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
+echo"<a class=\"registration\" href=\"savedGifts.php\">Hi! $_SESSION[name]</a> <a class=\"log-in\" href=\"logout.php\">LOG OUT</a>";
 }
 else{
 echo"<a class=\"registration\" href=\"Register.php\">REGISTRATION</a> <a class=\"log-in\" href=\"login.php\">LOG IN</a>";
@@ -84,8 +84,7 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 <a><span>Occasion Type</span></a><br>
 <a class="menu_item" href="catagoryResults.php?catid=9"><span>Birthday</span></a><br>
 <a class="menu_item" href="catagoryResults.php?catid=10"><span>Holidays</span></a><br>
-<a class="menu_item" method = "post" id = "catitem" value = "1" href="?page=home"><span>Anniversary</span></a><br>
-<a class="menu_item" method = "post" id = "catitem" value = "1" href="?page=home"><span>Just Because</span></a><br>
+<a class="menu_item" href="catagoryResults.php?catid=12"><span>Just Because</span></a><br>
 
 <a class="menu_item" href="catagoryResults.php?catid=11"><span>Special Events</span></a><br>
 
