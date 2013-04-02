@@ -67,6 +67,8 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 <div class="menu_header_right"> </div>
 </div>
 <div id="Menu_content"> 
+<a class="menu_item" href="catagoryResults.php?catid=13"><span>All Gifts</span></a><br>
+
 <a class="menu_item" href="catagoryResults.php?catid=1"><span>Babies</span></a><br>
 <a class="menu_item" href="catagoryResults.php?catid=2"><span>Men</span></a><br>
 <a class="menu_item"  href="catagoryResults.php?catid=3"><span>Woman</span></a><br>
@@ -76,6 +78,7 @@ echo"<a class=\"kart\" href=\"savedGifts.php\"><span>Saved Gifts</span></a>";
 <a class="menu_item" href="catagoryResults.php?catid=7"><span>Family</span></a><br>
 <a class="menu_item" href="catagoryResults.php?catid=8"><span>Pet/Pet Lover</span></a><br>
 <a><span>Occasion Type</span></a><br>
+
 <a class="menu_item" href="catagoryResults.php?catid=9"><span>Birthday</span></a><br>
 <a class="menu_item" href="catagoryResults.php?catid=10"><span>Holidays</span></a><br>
 <a class="menu_item" href="catagoryResults.php?catid=12"><span>Just Because</span></a><br>
