@@ -31,6 +31,7 @@ include "db_connect.php";
 if(isset($_GET['giftid'])){
 $gid = $_GET['giftid'];
 $user = $_SESSION['name'];
+$gid = mysqli_real_escape_string($db,trim($gid));
 $query = "insert into savedgifts values ((select id from users where username ='".$user."'),".$gid.");";
 $result = mysqli_query($db, $query)
    			or die("Error Querying Database");
